@@ -1,5 +1,9 @@
 # idl1.py
 import streamlit as st
+import sys
+import os
+
+sys.path.append(os.path.dirname(__file__))  # Asegura que Python vea la carpeta del proyecto
 from logica import crear_trabajadores
 
 def main():
