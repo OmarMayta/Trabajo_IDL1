@@ -1,22 +1,15 @@
-# idl1.py
+# IDL_1.py
 import streamlit as st
-import sys
-import os
-
-sys.path.append(os.path.dirname(__file__))  # Asegura que Python vea la carpeta del proyecto
 from logica import crear_trabajadores
 
-def main():
-    st.title("Listado de Trabajadores - Business Corporation")
-    
-    trabajadores = crear_trabajadores()
-    
-    for t in trabajadores:
-        st.subheader(t.get_nombre())
-        st.write("Resumen:", t.def_resumen())
-        st.write("Jefe Inmediato:", t.def_jefe_inmediato())
-        st.write("Estado:", t.def_estado())
-        st.markdown("---")
+st.title("Sistema de Recursos Humanos - Business Corporation")
 
-if __name__ == '__main__':
-    main()
+# Obtener lista de trabajadores
+trabajadores = crear_trabajadores()
+
+# Mostrar información en Streamlit
+for trabajador in trabajadores:
+    st.subheader(trabajador.def_resumen())
+    st.text(f"Jefe inmediato: {trabajador.def_jefe_inmediato()}")
+    st.text(f"Estado: {trabajador.def_estado()}")
+    st.write("---")
